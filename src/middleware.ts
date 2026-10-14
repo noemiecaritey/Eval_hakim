@@ -1,6 +1,8 @@
 import { getSession } from 'auth-astro/server';
 
 export async function onRequest(context: any, next: any) {
+  console.log("MIDDLEWARE", context.url.pathname);
+
   if (context.url.pathname.startsWith('/api/auth/') || context.url.pathname === '/login') {
     return next();
   }
